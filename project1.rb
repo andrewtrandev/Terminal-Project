@@ -10,20 +10,25 @@
 
 #searches internet to see if word exists
 #points system
-#output score onto text file and read it at start game
+#output score onto ttext file and read it at start game
 #could also have a play again function
 
+play_game=true
+while play_game==true
 
 require 'dictionary_lookup'
 p "Welcome to terminal scrabble,"
 p   "please try to come up with the longest word possible"
 p   "for the most points"
 p "How many letters would you like to scramble?"
+#input for how many letters to scramble
+
 numberofletters=gets.chomp
 
 
 #returns an array of shuffle letters
 #should turn into function?
+#at the moment it's only shuffling 1 set of 26 letters
 def lettershuffle(numberofletters)
     letters =('a'..'z').to_a.shuffle[0,numberofletters.to_i].join
     return letters
@@ -31,10 +36,32 @@ end
 
 p lettershuffle(numberofletters)
 
+p "Please enter the longest word you can think of"
+userinput = gets.chomp
+
+
+
 #results = check dictionary gem to see if word can be defined
 #feed user input in that checks with dictionary
 #sanitize inputs for get rid of numbers and odd characters?
-results = DictionaryLookup::Base.define("hellop")
+results = DictionaryLookup::Base.define(userinput)
 #word length = points length
 #if empty array then no points
-p results
+
+
+# if results == []
+#     p "No points"
+# else
+#     p results.
+if results != []
+    p "Congratulations you win one point"
+else
+    p "No points"
+end
+
+    p "Would you like to play again? (y/n)"
+    play_game = gets.chomp
+    if play_game == 'y' ? play_game=true : play_game=false
+    end
+
+end
