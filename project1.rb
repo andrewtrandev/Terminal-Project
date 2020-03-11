@@ -20,7 +20,7 @@ require 'colorize'
 #     :light_blue, :magenta, :light_magenta, :cyan, :light_cyan, :white, :light_white, :default]
 
 play_game=true
-
+score=0
 while play_game==true
 
     puts "Welcome to terminal scrabble,".colorize(:blue)
@@ -58,32 +58,36 @@ while play_game==true
 
     #assign randomletters using method
     p randomletters=lettershuffle(numberofletters)
-    puts "Please enter the longest word you can think of".colorize(:red)
     
-    # validword=true
-    # if validword == true
-
-
+    puts "Please enter the longest word you can think of".colorize(:red)
     userinput = gets.chomp
         
-    #split the userinput into an array
     userinputcheck = userinput.split("")
     randomletterscheck=randomletters.split("")
-    #for each object in userinput check
+  
     p randomletterscheck
     p userinputcheck
     
-    validword = true
-    for letter in userinputcheck
-        #if randomletters had the letter inside
-        if randomletterscheck.include?(letter)
-           randomletterscheck.delete(letter)
-        else
-            puts "Not a valid word!".colorize(:yellow)
-            validword=false
-            break
+    
+    def wordcheck(userinputcheck, randomletterscheck)
+        for letter in userinputcheck
+            #if randomletters had the letter inside
+            if randomletterscheck.include?(letter)
+            randomletterscheck.delete(letter)
+            else
+                puts "Not a valid word!".colorize(:yellow)
+                return false
+                break
+            end
+        
         end
+        return true 
     end
+    p validword=wordcheck(userinputcheck, randomletterscheck)
+
+    
+    
+    # while validword == false 
 
     # while !check_word(users_hand, word)
     #     print "enter a valid word"
@@ -104,9 +108,10 @@ while play_game==true
     #if answer is not equal to empty array then award userinput.length as points
     
     if results != [] || results2!=[]
-        puts "Congratulations you win #{userinput.length} points".colorize(:black).colorize(:background =>:yellow)
-        score = userinput.length
-        puts "score:#{score}"
+        puts "Congratulations you win #{userinput.length} points".colorize(:light_green)
+        
+        score = score+(userinput.length.to_i)
+        puts "score:#{score}".colorize(:black).colorize(:background =>:yellow)
     else
         puts "No points".colorize(:light_magenta)
     end

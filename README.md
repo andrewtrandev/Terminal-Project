@@ -14,3 +14,13 @@ Points system
 ## Outline
 User will be prompted to enter how many letters they want to play with
 User will be prompted to enter a word using the randomized letters
+
+
+## Referenced Sources
+Gems
+https://www.rubydoc.info/gems/tty-prompt
+https://rdoc.info/github/fazibear/colorize
+https://github.com/nitishparkar/dictionary-lookup-rb
+
+## Source Control Repository
+https://github.com/andrewtrandev/terminalproject
