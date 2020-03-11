@@ -14,6 +14,10 @@ Accruing point system
 ## Outline
 User will be prompted to enter how many letters they want to play with
 User will be prompted to enter a word using the randomized letters
+If user input doesn't exist in randomized letters then return false
+If letters used match randomized letters, check if word exists in dictionary
+Award points based on length
+Store points and carry over score to future games
 
 
 ## Referenced Sources

@@ -16,6 +16,7 @@ require 'ruby_figlet'
 require 'dictionary_lookup'
 require 'lolcat'
 require 'tty-prompt'
+require 'tty-box'
 prompt=TTY::Prompt.new
 require 'colorize'
 # [:black, :light_black, :red, :light_red, :green, :light_green, :yellow, :light_yellow, :blue, 
@@ -24,11 +25,14 @@ require 'colorize'
 play_game=true
 score=0
 while play_game==true
+    system "clear"
     puts " "
     puts (RubyFiglet::Figlet.new("Terminal Scrabble").to_s).colorize(:blue)
-    puts "Please try to come up with the longest word possible".colorize(:red)
+    puts TTY::Box.frame "Please try to come up with the longest word possible".colorize(:red),padding:0.5, align: :center
     #input for how many letters to scramble
     
+   
+
     numberofletters=prompt.ask("Please pick how many letters you would like to scramble (2-12 letters):") do |q|
         q.in '2-12'
         q.messages[:range?]= '%{value} out of expected range'
@@ -63,10 +67,11 @@ while play_game==true
     userinputcheck = userinput.split("")
     randomletterscheck=randomletters.split("")
   
-    p randomletterscheck
-    p userinputcheck
-    
-    
+    # p randomletterscheck
+    # p userinputcheck
+
+    # continue=false
+    # while continue ==false
     def wordcheck(userinputcheck, randomletterscheck)
         for letter in userinputcheck
             #if randomletters had the letter inside
@@ -81,9 +86,9 @@ while play_game==true
         end
         return true 
     end
+# end
+     validword=wordcheck(userinputcheck, randomletterscheck)
 
-    p validword=wordcheck(userinputcheck, randomletterscheck)
-    
     
     
     # while validword == false 
@@ -106,14 +111,14 @@ while play_game==true
     #if empty array then no points
     #if answer is not equal to empty array then award userinput.length as points
     
-    if results != [] 
+    if results != [] && validword==true
         puts "Congratulations you win #{userinput.length} points".colorize(:light_green)
         
         score = score+(userinput.length.to_i)
-        puts "score:#{score}".colorize(:black).colorize(:background =>:yellow)
+        puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
     else
         puts "No points".colorize(:light_magenta)
-        puts "score:#{score}".colorize(:black).colorize(:background =>:yellow)
+        puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
     end
 
         puts "Would you like to play again? (y/n)".colorize(:yellow)

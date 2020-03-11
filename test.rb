@@ -7,8 +7,9 @@ require "tty-prompt"
 require "ruby_figlet"
 prompt=TTY::Prompt.new
 require "lolcat"
+require "tty-box"
+puts  TTY::Box.frame "Please try to come up with the longest word possible", padding: 1, align: :center
 
-p lolcat "Hello"
 
 puts RubyFiglet::Figlet.new("meow...").to_s
 # p vowels
