@@ -77,15 +77,15 @@ while play_game==true
             else
                 puts "Not a valid word!".colorize(:yellow)
                 return false
-                break
             end
         
         end
         return true 
     end
 # end
+    #method gets called down here
      validword=wordcheck(userinputcheck, randomletterscheck)
-
+    #validword is either true/false
     
     
     # while validword == false 
@@ -94,13 +94,11 @@ while play_game==true
     #     print "enter a valid word"
     # end
     
-    #need to check if userinput is included within random letters
     
 
     #results = check dictionary gem to see if word can be defined
     #feed user input in that checks with dictionary
     #sanitize inputs for get rid of numbers and odd characters?
-
     results = DictionaryLookup::Base.define(userinput)
  
     # p userinput.split.pop == 's'
@@ -119,10 +117,11 @@ while play_game==true
         puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
     end
 
-        puts "Would you like to play again? (y/n)".colorize(:yellow)
-        play_game = gets.chomp
+        # puts "Would you like to play again? (y/n)".colorize(:yellow)
+        play_game = prompt.select("Would you like to play again?", %w(Yes No))
         #ternary if userinput = y go back to top and continue running game
-        if play_game == 'y' ? play_game=true : play_game=false
+        if play_game == 'Yes' ? play_game=true : play_game=false
         end
 
+        
 end

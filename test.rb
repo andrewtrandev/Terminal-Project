@@ -1,7 +1,7 @@
 # vowels = ['a', 'i', 'o', 'e', 'u'].shuffle[1]
 # vowels2 = ['a', 'i', 'o', 'e', 'u'].shuffle[0..4]  #what does this modifier even do // returns nil at 5, ohhh it must shuffle the array and return
 # #whatever that index position is
-vowels3 = ('a'..'z').to_a.shuffle[0,4] 
+# vowels3 = ('a'..'z').to_a.shuffle[0,4] 
 
 require "tty-prompt"
 require "ruby_figlet"
@@ -10,13 +10,15 @@ require "lolcat"
 require "tty-box"
 require 'dictionary_lookup'
 require 'colorize'
+
+
 # puts  TTY::Box.frame "Please try to come up with the longest word possible", padding: 1, align: :center
 
-
+p scrabble-solver | test
 # puts RubyFiglet::Figlet.new("meow...").to_s
 # # p vowels
 # # p vowels2
-p vowels3
+# p vowels3
 
 # # result=prompt.ask("Please pick 2 - 12 letters?") do |q|
 # #     q.in '2-12'
