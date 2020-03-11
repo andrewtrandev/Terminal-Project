@@ -14,6 +14,7 @@
 #could also have a play again function
 require 'dictionary_lookup'
 require 'tty-prompt'
+prompt=TTY::Prompt.new
 require 'colorize'
 # [:black, :light_black, :red, :light_red, :green, :light_green, :yellow, :light_yellow, :blue, 
 #     :light_blue, :magenta, :light_magenta, :cyan, :light_cyan, :white, :light_white, :default]
@@ -27,15 +28,20 @@ while play_game==true
     puts  "for the most points".colorize(:blue)
     puts "How many letters would you like to scramble?".colorize(:blue)
     #input for how many letters to scramble
-    numberofletters=gets.chomp.to_i
+    
+    numberofletters=prompt.ask("Please pick 2 - 12 letters?") do |q|
+        q.in '2-12'
+        q.messages[:range?]= '%{value} out of expected range'
+         end
 
+    numberofletters= numberofletters.to_i
 
     #returns an array of shuffle letters
     #should turn into function?
     #at the moment it's only shuffling 1 set of 26 letters
     def lettershuffle(numberofletters)
         
-       
+
         #incase there is no vowels, vowel adder
         if numberofletters< 6 
         #for letters a to z > convert to array and shuffle 
@@ -67,17 +73,21 @@ while play_game==true
     p randomletterscheck
     p userinputcheck
     
-    
-    for letters in userinputcheck
+    validword = true
+    for letter in userinputcheck
         #if randomletters had the letter inside
-        if randomletterscheck.include?(letters)
-           randomletterscheck.delete(letters)
+        if randomletterscheck.include?(letter)
+           randomletterscheck.delete(letter)
         else
             puts "Not a valid word!".colorize(:yellow)
             validword=false
             break
         end
     end
+
+    # while !check_word(users_hand, word)
+    #     print "enter a valid word"
+    # end
     
     #need to check if userinput is included within random letters
     
