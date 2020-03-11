@@ -12,24 +12,24 @@
 #points system
 #output score onto ttext file and read it at start game
 #could also have a play again function
+require 'ruby_figlet'
 require 'dictionary_lookup'
+require 'lolcat'
 require 'tty-prompt'
 prompt=TTY::Prompt.new
 require 'colorize'
 # [:black, :light_black, :red, :light_red, :green, :light_green, :yellow, :light_yellow, :blue, 
-#     :light_blue, :magenta, :light_magenta, :cyan, :light_cyan, :white, :light_white, :default]
+#     :light_blue, :magenta, :light_magnenta, :cyan, :light_cyan, :white, :light_white, :default]
 
 play_game=true
 score=0
 while play_game==true
-
-    puts "Welcome to terminal scrabble,".colorize(:blue)
-    puts  "please try to come up with the longest word possible".colorize(:blue)
-    puts  "for the most points".colorize(:blue)
-    puts "How many letters would you like to scramble?".colorize(:blue)
+    puts " "
+    puts (RubyFiglet::Figlet.new("Terminal Scrabble").to_s).colorize(:blue)
+    puts "Please try to come up with the longest word possible".colorize(:red)
     #input for how many letters to scramble
     
-    numberofletters=prompt.ask("Please pick 2 - 12 letters?") do |q|
+    numberofletters=prompt.ask("Please pick how many letters you would like to scramble (2-12 letters):") do |q|
         q.in '2-12'
         q.messages[:range?]= '%{value} out of expected range'
          end
@@ -40,9 +40,7 @@ while play_game==true
     #should turn into function?
     #at the moment it's only shuffling 1 set of 26 letters
     def lettershuffle(numberofletters)
-        
-
-        #incase there is no vowels, vowel adder
+         #incase there is no vowels, vowel adder
         if numberofletters< 6 
         #for letters a to z > convert to array and shuffle 
         letters =('a'..'z').to_a.shuffle[0,(numberofletters-1)].join
@@ -51,8 +49,8 @@ while play_game==true
             letters =('a'..'z').to_a.shuffle[0,(numberofletters-2)].join
             vowels = ['a', 'i', 'o', 'e', 'u'].shuffle[0..1].join
         end
-        p vowels
-        p letters
+        # p vowels
+        # p letters
         return vowels + letters  
     end
 
@@ -61,7 +59,7 @@ while play_game==true
     
     puts "Please enter the longest word you can think of".colorize(:red)
     userinput = gets.chomp
-        
+    
     userinputcheck = userinput.split("")
     randomletterscheck=randomletters.split("")
   
@@ -83,8 +81,9 @@ while play_game==true
         end
         return true 
     end
-    p validword=wordcheck(userinputcheck, randomletterscheck)
 
+    p validword=wordcheck(userinputcheck, randomletterscheck)
+    
     
     
     # while validword == false 
@@ -101,19 +100,20 @@ while play_game==true
     #sanitize inputs for get rid of numbers and odd characters?
 
     results = DictionaryLookup::Base.define(userinput)
-    results2 = DictionaryLookup::Base.define(userinput.chop) #chop cuts off the last character
+ 
 
     #word length = points length
     #if empty array then no points
     #if answer is not equal to empty array then award userinput.length as points
     
-    if results != [] || results2!=[]
+    if results != [] 
         puts "Congratulations you win #{userinput.length} points".colorize(:light_green)
         
         score = score+(userinput.length.to_i)
         puts "score:#{score}".colorize(:black).colorize(:background =>:yellow)
     else
         puts "No points".colorize(:light_magenta)
+        puts "score:#{score}".colorize(:black).colorize(:background =>:yellow)
     end
 
         puts "Would you like to play again? (y/n)".colorize(:yellow)

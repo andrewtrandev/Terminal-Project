@@ -4,8 +4,13 @@
 # vowels3 = ('a'..'z').to_a.shuffle[0..4] 
 
 require "tty-prompt"
+require "ruby_figlet"
 prompt=TTY::Prompt.new
+require "lolcat"
 
+p lolcat "Hello"
+
+puts RubyFiglet::Figlet.new("meow...").to_s
 # p vowels
 # p vowels2
 # p vowels3
