@@ -26,10 +26,11 @@ play_game=true
 score=0
 while play_game==true
     system "clear"
-    puts " "
     puts (RubyFiglet::Figlet.new("Terminal Scrabble").to_s).colorize(:blue)
-    puts TTY::Box.frame "Please try to come up with the longest word possible".colorize(:red),padding:0.5, align: :center
+    puts " "
+    puts TTY::Box.frame "Please try to come up with the longest word possible:".colorize(:red),padding:0.5, align: :center
     #input for how many letters to scramble
+    puts " "
     
    
 
@@ -61,7 +62,7 @@ while play_game==true
     #assign randomletters using method
     p randomletters=lettershuffle(numberofletters)
     
-    puts "Please enter the longest word you can think of".colorize(:red)
+    puts "Please enter the longest word you can think of:".colorize(:red)
     userinput = gets.chomp
     
     userinputcheck = userinput.split("")
@@ -106,7 +107,7 @@ while play_game==true
 
     results = DictionaryLookup::Base.define(userinput)
  
-
+    # p userinput.split.pop == 's'
     #word length = points length
     #if empty array then no points
     #if answer is not equal to empty array then award userinput.length as points
@@ -116,6 +117,7 @@ while play_game==true
         
         score = score+(userinput.length.to_i)
         puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
+        
     else
         puts "No points".colorize(:light_magenta)
         puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
