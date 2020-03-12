@@ -18,7 +18,6 @@ play_game=true
 score=0
 games_played=0
 
-
 while play_game==true
     system "clear"
     puts (RubyFiglet::Figlet.new("Terminal Scrabble").to_s).colorize(:blue)
@@ -41,11 +40,11 @@ while play_game==true
          #incase there is no vowels, vowel adder
         if numberofletters< 6 
         #for letters a to z > convert to array and shuffle 
-        letters =('a'..'z').to_a.shuffle[0,(numberofletters-1)].join
+        letters =('a'..'z').to_a.shuffle[0,(numberofletters-1)]
         vowels = ['a', 'i', 'o', 'e', 'u'].shuffle[0]
         else
-            letters =('a'..'z').to_a.shuffle[0,(numberofletters-2)].join
-            vowels = ['a', 'i', 'o', 'e', 'u'].shuffle[0..1].join
+            letters =('a'..'z').to_a.shuffle[0,(numberofletters-2)]
+            vowels = ['a', 'i', 'o', 'e', 'u'].shuffle[0..1]
         end
         return vowels + letters  
     end
@@ -71,7 +70,7 @@ while play_game==true
             # p randomletterscheck
             index+=1
             
-            p index
+            # p index
             else
                 puts "\nNot a valid word!".colorize(:yellow)
                 return false
@@ -85,10 +84,10 @@ while play_game==true
     validword=false
     while validword == false do
     puts " "
-    print randomlettersplit=randomletters.split('')
+    print randomletters
      userinput=wordcollect()
-     userinputcheck = userinput.split("")
-     randomletterscheck=randomletters.split("")
+     userinputcheck = userinput
+     randomletterscheck=randomletters
      validword=wordcheck(userinputcheck, randomletterscheck)
     end
 

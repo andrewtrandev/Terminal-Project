@@ -39,12 +39,14 @@ class Scrabble
     end
   end
 
-  p Scrabble.score("hello")
+  # p Scrabble.score("hello")
+numberofletters=6
 
-
-
+  letters =('a'..'z').to_a.shuffle[0,(numberofletters-2)]
+  vowels = ['a', 'i', 'o', 'e', 'u'].shuffle[0..1]
   
-
+p letters
+p vowels
 
 # puts  TTY::Box.frame "Please try to come up with the longest word possible", padding: 1, align: :center
 
