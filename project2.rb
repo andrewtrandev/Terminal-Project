@@ -16,6 +16,7 @@ require_relative "./scrabblescore.rb"
 
 play_game=true
 score=0
+games_played=0
 
 
 while play_game==true
@@ -32,7 +33,6 @@ while play_game==true
         q.messages[:range?]= '%{value} is out of the expected range of 2-20 letters'
          end
          
-         
          system "clear"
     numberofletters= numberofletters.to_i
 
@@ -47,14 +47,12 @@ while play_game==true
             letters =('a'..'z').to_a.shuffle[0,(numberofletters-2)].join
             vowels = ['a', 'i', 'o', 'e', 'u'].shuffle[0..1].join
         end
-        # p vowels
-        # p letters
         return vowels + letters  
     end
 
     #assign randomletters using method
     randomletters=lettershuffle(numberofletters)
-    randomlettersplit=randomletters.split("")
+    
 
     def wordcollect()
     puts "\nPlease enter the longest word you can think of,".colorize(:red) 
@@ -64,13 +62,20 @@ while play_game==true
     
 
     def wordcheck(userinputcheck, randomletterscheck)
+        index=0
         for letter in userinputcheck
             #if randomletters had the letter inside
             if randomletterscheck.include?(letter)
-            randomletterscheck.delete(letter)
+               
+            randomletterscheck.delete_at(randomletterscheck.index(letter))
+            # p randomletterscheck
+            index+=1
+            
+            p index
             else
                 puts "\nNot a valid word!".colorize(:yellow)
                 return false
+                
             end
         
         end
@@ -80,11 +85,11 @@ while play_game==true
     validword=false
     while validword == false do
     puts " "
-    p randomlettersplit
-    userinput=wordcollect()
-    userinputcheck = userinput.split("")
-    randomletterscheck=randomletters.split("")
-    validword=wordcheck(userinputcheck, randomletterscheck)
+    print randomlettersplit=randomletters.split('')
+     userinput=wordcollect()
+     userinputcheck = userinput.split("")
+     randomletterscheck=randomletters.split("")
+     validword=wordcheck(userinputcheck, randomletterscheck)
     end
 
     #results = check dictionary gem to see if word can be defined
@@ -103,16 +108,22 @@ while play_game==true
         puts 
         score = score+(Scrabble.score(userinput))
         puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
-        
+        games_played+=1
+        puts "Games played:#{games_played}"
+        puts "Score per game:#{(score.to_f/games_played.to_f).round(2)}"
     else
         puts "No points".colorize(:light_magenta)
         puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
+        games_played+=1
+        puts "Games played:#{games_played}"
+        puts "Score per game:#{(score.to_f/games_played.to_f).round(2)}"
     end
 
         # puts "Would you like to play again? (y/n)".colorize(:yellow)
         play_game = prompt.select("\nWould you like to play again?", %w(Yes No))
         #ternary if userinput = y go back to top and continue running game
         if play_game == 'Yes' ? play_game=true : play_game=false
+           
         end
-   
+  
 end

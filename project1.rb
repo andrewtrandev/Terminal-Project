@@ -52,7 +52,7 @@ while play_game==true
 
     #assign randomletters using method
     randomletters=lettershuffle(numberofletters)
-    randomlettersplit=randomletters.split("")
+    
 
     def wordcollect()
     puts "\nPlease enter the longest word you can think of,".colorize(:red) 
@@ -62,13 +62,20 @@ while play_game==true
     
 
     def wordcheck(userinputcheck, randomletterscheck)
+        index=0
         for letter in userinputcheck
             #if randomletters had the letter inside
             if randomletterscheck.include?(letter)
-            randomletterscheck.delete(letter)
+               
+            randomletterscheck.delete_at(randomletterscheck.index(letter))
+            # p randomletterscheck
+            index+=1
+            
+            #p index
             else
                 puts "\nNot a valid word!".colorize(:yellow)
                 return false
+                
             end
         
         end
@@ -78,11 +85,11 @@ while play_game==true
     validword=false
     while validword == false do
     puts " "
-    p randomlettersplit
-    userinput=wordcollect()
-    userinputcheck = userinput.split("")
-    randomletterscheck=randomletters.split("")
-    validword=wordcheck(userinputcheck, randomletterscheck)
+    print randomlettersplit=randomletters.split('')
+     userinput=wordcollect()
+     userinputcheck = userinput.split("")
+     randomletterscheck=randomletters.split("")
+     validword=wordcheck(userinputcheck, randomletterscheck)
     end
 
     #results = check dictionary gem to see if word can be defined

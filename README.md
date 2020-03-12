@@ -19,7 +19,7 @@ https://exercism.io/tracks/ruby/exercises/scrabble-score/solutions/70afb9275c054
 https://github.com/andrewtrandev/terminalproject
 
 ## R5.Purpose and Scope
-Program will entertain users by allows them to play a simple word game in terminal. I'm developing this to test out some programming ideas and features, I also like word games and thought it would be an interesting idea to try.
+Program will entertain users by allowing them to play a simple word game in terminal. I'm developing this to test out some programming ideas and features, I also like word games and thought it would be an interesting idea to try.
 
 ## Target Audience
 The target audience is for bored people looking for brain stimulationg entertainment and anyone interested in word games.
@@ -32,14 +32,14 @@ If the word uses the letters given, check if it exists in the dictionary, user i
 User is told their final score and amount of games played then asked whether they want to play again. 
 
 ## R6.Features
-Replay game - a while loop that allows you to continue to play again by selecting either yes/no. Limited it to just a menu select for yes/no so that user can't enter other commands.
+**Replay game** - a while loop that allows you to continue to play again by selecting either yes/no. Limited it to just a menu select for yes/no so that user can't enter other commands.
 
-Accruing point system - points earned will carry over to future games in the instance. Adds the score onto a variable outside the while loop so that the score doesn't get reset each time the game goes through the while loop
+**Accruing point system** - points earned will carry over to future games in the instance. Adds the score onto a variable outside the while loop so that the score doesn't get reset each time the game goes through the while loop
 
-Vowel adder - if number of letters is greater than 6, add more vowels to make the game easier. Done through a method that first checks
+**Vowel adder** - if number of letters is greater than 6, add more vowels to make the game easier. Done through a method that first checks
 if the word is less than 6 letters and if so will shuffle at least one vowel in, if the word is greater than 6 letters it'll shuffle at least 2 vowels in.
 
-Mismatching letters loop - If user inputs letters that don't equal the output randomized letters then continue running a while loop that outputs the random letters and prompts them to input letters that match the output randomized letters.
+**Mismatching letters loop** - If user inputs letters that don't equal the output randomized letters then continue running a while loop that outputs the random letters and prompts them to input letters that match the output randomized letters.
 
 
 ## R7.User Interaction and Experience
@@ -85,27 +85,27 @@ Comment
 Works as expected
 
 ### Test 2.
-Feature being tested
+#### Feature being tested
 Vowel Adder
 
-Test Case Summary
+#### Test Case Summary
 Add vowels based on word length, 1 vowel if 5 letters and 2 vowels if 6 letters or more
 
-Test Data
+#### Test Data
 Userinput =5
 Userinput =6
 
-Expected Result
+#### Expected Result
 5 letters with at least 1 vowel in it
 6 letters with at least 2 vowels in it
 
-Actual Result
+#### Actual Result
 5 letters had at least 1 vowel
 6 letters had at least 2 vowels
 
-Status
+#### Status
 Passed
 
-Comment
+#### Comment
 
 
