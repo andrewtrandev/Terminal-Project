@@ -1,9 +1,9 @@
 #ruby gems dictionary
-
 #searches internet to see if word exists
 #points system
 #output score onto ttext file and read it at start game
 #could also have a play again function
+
 require 'ruby_figlet'
 require 'dictionary_lookup'
 require 'tty-prompt'
@@ -36,9 +36,7 @@ while play_game==true
          system "clear"
     numberofletters= numberofletters.to_i
 
-    #returns an array of shuffle letters
-    #should turn into function?
-    #at the moment it's only shuffling 1 set of 26 letters
+ 
     def lettershuffle(numberofletters)
          #incase there is no vowels, vowel adder
         if numberofletters< 6 
@@ -56,45 +54,39 @@ while play_game==true
 
     #assign randomletters using method
     randomletters=lettershuffle(numberofletters)
-    p randomletters2=randomletters.split("")
+    randomlettersplit=randomletters.split("")
+
+    def wordcollect()
     puts "\nPlease enter the longest word you can think of,".colorize(:red) 
     puts "using the above letters:".colorize(:red)
+    return gets.chomp
+    end
     
-    userinput = gets.chomp
-    
-    userinputcheck = userinput.split("")
-    randomletterscheck=randomletters.split("")
-  
-    # p randomletterscheck
-    # p userinputcheck
-    
-    # continue=false
-    # while continue ==false
+
     def wordcheck(userinputcheck, randomletterscheck)
         for letter in userinputcheck
             #if randomletters had the letter inside
             if randomletterscheck.include?(letter)
             randomletterscheck.delete(letter)
             else
-                puts "Not a valid word!".colorize(:yellow)
+                puts "\nNot a valid word!".colorize(:yellow)
                 return false
             end
         
         end
         return true 
     end
-# end
-    #method gets called down here
-    validword=wordcheck(userinputcheck, randomletterscheck)
-    #validword is either true/false
-    
-    
-    # while validword == false 
 
-    # while !check_word(users_hand, word)
-    #     print "enter a valid word"
-    # end
-    
+    validword=false
+    while validword == false do
+    puts " "
+    p randomlettersplit
+    userinput=wordcollect()
+    userinputcheck = userinput.split("")
+    randomletterscheck=randomletters.split("")
+    validword=wordcheck(userinputcheck, randomletterscheck)
+    end
+
     #results = check dictionary gem to see if word can be defined
     #feed user input in that checks with dictionary
     #sanitize inputs for get rid of numbers and odd characters?

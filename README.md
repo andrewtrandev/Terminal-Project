@@ -17,11 +17,10 @@ https://exercism.io/tracks/ruby/exercises/scrabble-score/solutions/70afb9275c054
 https://github.com/andrewtrandev/terminalproject
 
 ## R5.Purpose and Scope
-Program will entertain users by allows them to play
-the word game Scrabble in terminal. I'm developing this to test out some programming ideas and features, I also like Scrabble and thought it would be a fun idea to try out.
+Program will entertain users by allows them to play a simple word game in terminal. I'm developing this to test out some programming ideas and features, I also like word games and thought it would be an interesting idea to try.
 
 ## Target Audience
-The target audience is bored people looking for entertainment and people interested in word games or looking to play Scrabble in terminal.
+The target audience is for bored people looking for brain stimulationg entertainment and anyone interested in word games.
 
 ## How to use
 The target audience will be prompted to enter how many letters they would like to play with.
@@ -31,9 +30,9 @@ If the word uses the letters given, check if it exists in the dictionary, user i
 User is then told their final score and asked whether they want to play again. 
 
 ## R6.Features
-Replay game - a while loop that allows you to continue to play again by entering y. Alternatively pressing any other key will stop the current instance of the game.
+Replay game - a while loop that allows you to continue to play again by selecting either yes/no. Limited it to just a menu select for yes/no so that user can't enter other commands.W
 
-Accruing point system - points earned will carry over to future games in the instance. Adds the score onto a variable outside the while loop so that the score doesn't get reset.
+Accruing point system - points earned will carry over to future games in the instance. Adds the score onto a variable outside the while loop so that the score doesn't get reset each time the game goes through the while loop
 
 Vowel adder - if number of letters is greater than 6, add more vowels to make the game easier. Done through a method that first checks
 if the word is less than 6 letters and if so will shuffle at least one vowel in, if the word is greater than 6 letters it'll shuffle at least 2 vowels in.
