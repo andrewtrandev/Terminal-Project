@@ -3,12 +3,14 @@
 # Software Development Plan
 
 ## R3.Referenced Sources
-Gems
+### Gems
 https://www.rubydoc.info/gems/tty-prompt
 https://github.com/piotrmurach/tty-box
 https://rdoc.info/github/fazibear/colorize
 https://github.com/nitishparkar/dictionary-lookup-rb
 https://github.com/Demonstrandum/RubyFiglet
+
+### Ruby files
 https://exercism.io/tracks/ruby/exercises/scrabble-score/solutions/70afb9275c054c2dab17d7a21da7d408
 
 
@@ -27,15 +29,18 @@ The target audience will be prompted to enter how many letters they would like t
 They will be then given a random set of letters. They will then be prompted to enter a word that uses those random letters. 
 If the word doesn't match, the program will end.
 If the word uses the letters given, check if it exists in the dictionary, user is given points based on word length.
-User is then told their final score and asked whether they want to play again. 
+User is told their final score and amount of games played then asked whether they want to play again. 
 
 ## R6.Features
-Replay game - a while loop that allows you to continue to play again by selecting either yes/no. Limited it to just a menu select for yes/no so that user can't enter other commands.W
+Replay game - a while loop that allows you to continue to play again by selecting either yes/no. Limited it to just a menu select for yes/no so that user can't enter other commands.
 
 Accruing point system - points earned will carry over to future games in the instance. Adds the score onto a variable outside the while loop so that the score doesn't get reset each time the game goes through the while loop
 
 Vowel adder - if number of letters is greater than 6, add more vowels to make the game easier. Done through a method that first checks
 if the word is less than 6 letters and if so will shuffle at least one vowel in, if the word is greater than 6 letters it'll shuffle at least 2 vowels in.
+
+Mismatching letters loop - If user inputs letters that don't equal the output randomized letters then continue running a while loop that outputs the random letters and prompts them to input letters that match the output randomized letters.
+
 
 ## R7.User Interaction and Experience
 User will be prompted to enter how many letters they want to play with,
@@ -55,7 +60,7 @@ Vowel Adder
 ## R10. Help Documentation
 
 ## R17. Manual Testing
-Test 1.
+### Test 1.
 Feature being tested
 User should not be able to get points for using letters
 that are not output by the program
@@ -79,7 +84,7 @@ Passed
 Comment
 Works as expected
 
-Test 2.
+### Test 2.
 Feature being tested
 Vowel Adder
 
@@ -88,17 +93,19 @@ Add vowels based on word length, 1 vowel if 5 letters and 2 vowels if 6 letters 
 
 Test Data
 Userinput =5
+Userinput =6
 
-Expect Result
-
+Expected Result
+5 letters with at least 1 vowel in it
+6 letters with at least 2 vowels in it
 
 Actual Result
-
+5 letters had at least 1 vowel
+6 letters had at least 2 vowels
 
 Status
-
+Passed
 
 Comment
-
 
 

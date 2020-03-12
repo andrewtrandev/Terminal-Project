@@ -33,7 +33,6 @@ while play_game==true
         q.messages[:range?]= '%{value} is out of the expected range of 2-20 letters'
          end
          
-         
          system "clear"
     numberofletters= numberofletters.to_i
 
@@ -104,13 +103,13 @@ while play_game==true
         puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
         games_played+=1
         puts "Games played:#{games_played}"
-        puts "Score per game:#{score/games_played}"
+        puts "Score per game:#{(score.to_f/games_played.to_f).round(2)}"
     else
         puts "No points".colorize(:light_magenta)
         puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
         games_played+=1
         puts "Games played:#{games_played}"
-        puts "Score per game:#{score/games_played}"
+        puts "Score per game:#{(score.to_f/games_played.to_f).round(2)}"
     end
 
         # puts "Would you like to play again? (y/n)".colorize(:yellow)
