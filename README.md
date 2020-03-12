@@ -37,15 +37,52 @@ Vowel adder - if number of letters is greater than 6, add more vowels to make th
 if the word is less than 6 letters and if so will shuffle at least one vowel in, if the word is greater than 6 letters it'll shuffle at least 2 vowels in.
 
 ## R7.User Interaction and Experience
-User will be prompted to enter how many letters they want to play with
-User will be prompted to enter a word using the randomized letters
-If user input doesn't exist in randomized letters then return false
-If letters used match randomized letters, check if word exists in dictionary
-Award and store points based on length
-Ask if user wants to play again, user enters y to play again or anything else to quit
+User will be prompted to enter how many letters they want to play with,
+if user tries to enter number out of the range, display "value is out of expected range 2-20 letters" 
+User will be prompted to enter a word using the randomized letters.
+If user's input doesn't exist in randomized letters then display 'Not a valid word' , award 0 points and end game.  
+If letters used match randomized letters, check if word exists in dictionary.
+Award and store points based on length.
+Then ask if user wants to play again, user selects 'y' to play again or 'n'
+to end the game loop. If user decides to play again, score should carry over and continue to add whilst in the same instance of game loop.
 
 ## R9.Implementation Plan
+Replay Game
+Accruing Point System 
+Vowel Adder
 
-## R10.Help Documentation
+## R10. Help Documentation
 
 ## R17. Manual Testing
+Test 1.
+Feature being tested
+
+Test Case Summary
+
+Test Data
+
+Expect Result
+
+Actual Result
+
+Status
+
+Comment
+
+Test 2.
+Feature being tested
+
+Test Case Summary
+
+Test Data
+
+Expect Result
+
+Actual Result
+
+Status
+
+Comment
+
+
+

@@ -58,8 +58,12 @@ while play_game==true
     #assign randomletters using method
     p randomletters=lettershuffle(numberofletters)
     
-    puts "Please enter the longest word you can think of:".colorize(:red)
-    userinput = gets.chomp
+    # puts "Please enter the longest word you can think of:".colorize(:red)
+    userinput = prompt.ask("Please enter the longest word you can think of:") do |q|
+  q.required true
+  q.validate /\A\w+\Z/
+  q.modify   :capitalize
+end
     
     userinputcheck = userinput.split("")
     randomletterscheck=randomletters.split("")

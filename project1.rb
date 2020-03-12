@@ -1,7 +1,3 @@
-
-
-
-
 #ruby gems dictionary
 
 #searches internet to see if word exists
@@ -10,7 +6,6 @@
 #could also have a play again function
 require 'ruby_figlet'
 require 'dictionary_lookup'
-require 'lolcat'
 require 'tty-prompt'
 require 'tty-box'
 prompt=TTY::Prompt.new
@@ -20,6 +15,12 @@ require 'colorize'
 
 play_game=true
 score=0
+begin
+    
+rescue => exception
+    
+end
+
 while play_game==true
     system "clear"
     puts (RubyFiglet::Figlet.new("Terminal Scrabble").to_s).colorize(:blue)
@@ -29,12 +30,13 @@ while play_game==true
     puts " "
     
    
-
-    numberofletters=prompt.ask("Please pick how many letters you would like to scramble (2-12 letters):") do |q|
-        q.in '2-12'
-        q.messages[:range?]= '%{value} out of expected range'
+    numberofletters=prompt.ask("Please pick how many letters you would like to scramble (2-20 letters):") do |q|
+        q.in '2-20'
+        q.messages[:range?]= '%{value} is out of the expected range of 2-20 letters'
          end
-
+         
+         
+         system "clear"
     numberofletters= numberofletters.to_i
 
     #returns an array of shuffle letters
@@ -56,9 +58,11 @@ while play_game==true
     end
 
     #assign randomletters using method
-    p randomletters=lettershuffle(numberofletters)
+    randomletters=lettershuffle(numberofletters)
+    p randomletters2=randomletters.split("")
+    puts "\nPlease enter the longest word you can think of,".colorize(:red) 
+    puts "using the above letters:".colorize(:red)
     
-    puts "Please enter the longest word you can think of:".colorize(:red)
     userinput = gets.chomp
     
     userinputcheck = userinput.split("")
@@ -77,15 +81,15 @@ while play_game==true
             else
                 puts "Not a valid word!".colorize(:yellow)
                 return false
-                break
             end
         
         end
         return true 
     end
 # end
-     validword=wordcheck(userinputcheck, randomletterscheck)
-
+    #method gets called down here
+    validword=wordcheck(userinputcheck, randomletterscheck)
+    #validword is either true/false
     
     
     # while validword == false 
@@ -94,13 +98,11 @@ while play_game==true
     #     print "enter a valid word"
     # end
     
-    #need to check if userinput is included within random letters
     
 
     #results = check dictionary gem to see if word can be defined
     #feed user input in that checks with dictionary
     #sanitize inputs for get rid of numbers and odd characters?
-
     results = DictionaryLookup::Base.define(userinput)
  
     # p userinput.split.pop == 's'
@@ -109,7 +111,7 @@ while play_game==true
     #if answer is not equal to empty array then award userinput.length as points
     
     if results != [] && validword==true
-        puts "Congratulations you win #{userinput.length} points".colorize(:light_green)
+        puts "\nCongratulations you win #{userinput.length} points".colorize(:light_green)
         
         score = score+(userinput.length.to_i)
         puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
@@ -119,10 +121,10 @@ while play_game==true
         puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
     end
 
-        puts "Would you like to play again? (y/n)".colorize(:yellow)
-        play_game = gets.chomp
+        # puts "Would you like to play again? (y/n)".colorize(:yellow)
+        play_game = prompt.select("\nWould you like to play again?", %w(Yes No))
         #ternary if userinput = y go back to top and continue running game
-        if play_game == 'y' ? play_game=true : play_game=false
+        if play_game == 'Yes' ? play_game=true : play_game=false
         end
-
+   
 end
