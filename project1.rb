@@ -10,16 +10,13 @@ require 'tty-prompt'
 require 'tty-box'
 prompt=TTY::Prompt.new
 require 'colorize'
+require_relative "./scrabblescore.rb"
 # [:black, :light_black, :red, :light_red, :green, :light_green, :yellow, :light_yellow, :blue, 
 #     :light_blue, :magenta, :light_magnenta, :cyan, :light_cyan, :white, :light_white, :default]
 
 play_game=true
 score=0
-begin
-    
-rescue => exception
-    
-end
+
 
 while play_game==true
     system "clear"
@@ -98,8 +95,6 @@ while play_game==true
     #     print "enter a valid word"
     # end
     
-    
-
     #results = check dictionary gem to see if word can be defined
     #feed user input in that checks with dictionary
     #sanitize inputs for get rid of numbers and odd characters?
@@ -111,9 +106,10 @@ while play_game==true
     #if answer is not equal to empty array then award userinput.length as points
     
     if results != [] && validword==true
-        puts "\nCongratulations you win #{userinput.length} points".colorize(:light_green)
         
-        score = score+(userinput.length.to_i)
+        puts "\nCongratulations you win #{Scrabble.score(userinput)} points".colorize(:light_green)
+        puts 
+        score = score+(Scrabble.score(userinput))
         puts "Final Score:#{score}".colorize(:black).colorize(:background =>:yellow)
         
     else

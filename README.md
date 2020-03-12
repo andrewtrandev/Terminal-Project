@@ -5,10 +5,12 @@
 ## R3.Referenced Sources
 Gems
 https://www.rubydoc.info/gems/tty-prompt
+https://github.com/piotrmurach/tty-box
 https://rdoc.info/github/fazibear/colorize
 https://github.com/nitishparkar/dictionary-lookup-rb
-https://www.rubydoc.info/gems/lolcat/100.0.0
 https://github.com/Demonstrandum/RubyFiglet
+https://exercism.io/tracks/ruby/exercises/scrabble-score/solutions/70afb9275c054c2dab17d7a21da7d408
+
 
 
 ## R4.Source Control Repository
@@ -56,31 +58,46 @@ Vowel Adder
 ## R17. Manual Testing
 Test 1.
 Feature being tested
+User should not be able to get points for using letters
+that are not output by the program
 
 Test Case Summary
+I'll use letters other than the ones output by program
 
 Test Data
+Program output
+User Input
 
-Expect Result
+Expected Result
+User should not get points for using letters not output by program
 
 Actual Result
+User did not get points for using letters not output by program
 
 Status
+Passed
 
 Comment
+Works as expected
 
 Test 2.
 Feature being tested
+Vowel Adder
 
 Test Case Summary
+Add vowels based on word length, 1 vowel if 5 letters and 2 vowels if 6 letters or more
 
 Test Data
+Userinput =5
 
 Expect Result
 
+
 Actual Result
 
+
 Status
+
 
 Comment
 
