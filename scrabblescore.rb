@@ -25,3 +25,5 @@ class Scrabble
       word.upcase.gsub(/[^A-Z]/,'')
     end
   end
+
+  p Scrabble.score("hello")

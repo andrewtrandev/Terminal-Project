@@ -1,8 +1,4 @@
-#ruby gems dictionary
-#searches internet to see if word exists
-#points system
-#output score onto ttext file and read it at start game
-#could also have a play again function
+
 
 require 'ruby_figlet'
 require 'dictionary_lookup'
@@ -60,13 +56,13 @@ while play_game==true
     end
     
 
-    def wordcheck(userinputcheck, randomletterscheck)
+    def wordcheck(userinput, randomletters)
         index=0
-        for letter in userinputcheck
+        for letter in userinput
             #if randomletters had the letter inside
-            if randomletterscheck.include?(letter)
+            if randomletters.include?(letter)
                
-            randomletterscheck.delete_at(randomletterscheck.index(letter))
+            randomletters.delete_at(randomletters.index(letter))
             # p randomletterscheck
             index+=1
             
@@ -86,9 +82,7 @@ while play_game==true
     puts " "
     print randomletters
      userinput=wordcollect()
-     userinputcheck = userinput
-     randomletterscheck=randomletters
-     validword=wordcheck(userinputcheck, randomletterscheck)
+     validword=wordcheck(userinput, randomletters)
     end
 
     #results = check dictionary gem to see if word can be defined
@@ -126,3 +120,4 @@ while play_game==true
         end
   
 end
+

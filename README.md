@@ -84,28 +84,6 @@ Passed
 Comment
 Works as expected
 
-### Test 2.
-#### Feature being tested
-Vowel Adder
 
-#### Test Case Summary
-Add vowels based on word length, 1 vowel if 5 letters and 2 vowels if 6 letters or more
-
-#### Test Data
-Userinput =5
-Userinput =6
-
-#### Expected Result
-5 letters with at least 1 vowel in it
-6 letters with at least 2 vowels in it
-
-#### Actual Result
-5 letters had at least 1 vowel
-6 letters had at least 2 vowels
-
-#### Status
-Passed
-
-#### Comment
 
 
