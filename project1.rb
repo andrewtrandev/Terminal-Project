@@ -15,19 +15,17 @@ while play_game==true
     puts (RubyFiglet::Figlet.new("Terminal Scrabble").to_s).colorize(:blue)
     puts " "
     puts TTY::Box.frame "Please try to come up with the longest word possible:".colorize(:red),padding:0.5, align: :center
-    #input for how many letters to scramble
     puts " "
     
    
     numberofletters=prompt.ask("Please pick how many letters you would like to scramble (2-20 letters):") do |q|
         q.in '2-20'
         q.messages[:range?]= '%{value} is out of the expected range of 2-20 letters'
-         end
+    end
          
-         system "clear"
+    system "clear"
     numberofletters= numberofletters.to_i
 
- 
     def lettershuffle(numberofletters)
          #incase there is no vowels, vowel adder
         if numberofletters< 6 
@@ -43,27 +41,28 @@ while play_game==true
 
     #assign randomletters using method
     randomletters=lettershuffle(numberofletters)
-    randomletterscheck=randomletters.to_s
+    randomletterscheck=randomletters.to_s  
+    #had to change this to .to_s so the arrays wouldn't be linked
+
 
     def wordcollect()
-    puts "\nPlease enter the longest word you can think of,".colorize(:red) 
-    puts "using the above letters:".colorize(:red)
-    return gets.chomp
+        puts "\nPlease enter the longest word you can think of,".colorize(:red) 
+        puts "using the above letters:".colorize(:red)
+        return gets.chomp
     end
     
 
-    def wordcheck(userinput, randomletters)
+    def wordcheck(userinput, randomletterscheck)
         
         for letter in userinput
             #if randomletters had the letter inside
-            if randomletters.include?(letter)
-               
-            randomletters.delete_at(randomletters.index(letter))
+            if randomletterscheck.include?(letter)
+                #used delete_at because delete() would delete every instance of a variable e.g double letters would be deleted
+               randomletterscheck.delete_at(randomletterscheck.index(letter))
             # p randomletterscheck
-           
             else
                 puts "\nNot a valid word!".colorize(:yellow)
-                return false
+            return false
                 
             end
         
@@ -72,11 +71,12 @@ while play_game==true
     end
 
     validword=false
+    
     while validword == false do
-    puts " "
-    print randomletters
-     userinput=wordcollect()
-     validword=wordcheck(userinput, randomletterscheck)
+        puts " "
+        print randomletters
+        userinput=wordcollect() 
+        validword=wordcheck(userinput, randomletterscheck)
     end
 
     #results = check dictionary gem to see if word can be defined
@@ -101,11 +101,11 @@ while play_game==true
     end
 
         # puts "Would you like to play again? (y/n)".colorize(:yellow)
-        play_game = prompt.select("\nWould you like to play again?", %w(Yes No))
+    play_game = prompt.select("\nWould you like to play again?", %w(Yes No))
         #ternary if userinput = y go back to top and continue running game
-        if play_game == 'Yes' ? play_game=true : play_game=false
+    if play_game == 'Yes' ? play_game=true : play_game=false
            
-        end
+    end
   
 end
 
