@@ -53,16 +53,14 @@ while play_game==true
     
 
     def wordcheck(userinput, randomletters)
-        index=0
+        
         for letter in userinput
             #if randomletters had the letter inside
             if randomletters.include?(letter)
                
             randomletters.delete_at(randomletters.index(letter))
             # p randomletterscheck
-            index+=1
-            
-            # p index
+           
             else
                 puts "\nNot a valid word!".colorize(:yellow)
                 return false
