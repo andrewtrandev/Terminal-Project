@@ -52,16 +52,21 @@ If user's input doesn't exist in randomized letters then display 'Not a valid wo
 to enter letters matching randomized letters.   
 If letters used match randomized letters, check if word exists in dictionary.
 Award and store points based on scrabble hash. 
-Then ask if user wants to play again, user selects 'y' to play again or 'n'
-to end the game loop. If user decides to play again, score should carry over and continue to add whilst in the same instance of game loop.
+Then ask if user wants to play again, user selects from a yes/no menu. 
+If user decides to play again, score should carry over and continue to add whilst in the same instance of game loop. 
+If user selects no, game ends.
 
 ## R8. Control Flow
 ![Control Flow Diagram](./docs/FlowChart.png)
 
 ## R9. Implementation Plan
-![Replay System](./docs/R9.ReplaySystem.PNG)
+![ReplaySystem](./docs/Replay.PNG)
 
-![]
+![WordChecker](./docs/WordChecker.PNG)
+
+![VowelAdder](./docs/Vowels.PNG)
+
+![Mismatch](./docs/Mismatch.PNG)
 
 ## R10. Help Documentation
 1. Install ruby on your windows subsystem
@@ -72,5 +77,6 @@ to end the game loop. If user decides to play again, score should carry over and
 
 System Requirements: Windows 10, Ubuntu 18.04 LTS, Ruby 2.6.3
 
-
+## R17. Testing Procedure
+![Tests](./docs/Tests.PNG)
 
