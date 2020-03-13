@@ -43,8 +43,8 @@ if the word is less than 6 letters and if so will shuffle at least one vowel in,
 
 
 ## R7.User Interaction and Experience
-User will be prompted to enter how many letters they want to play with,
-if user tries to enter number out of the range, display "value is out of expected range 2-20 letters" 
+User will be prompted on-screen to enter how many letters they want to play with,
+if user tries to enter number outside of the range, display "value is out of expected range 2-20 letters" 
 User will be prompted to enter a word using the randomized letters.
 If user's input doesn't exist in randomized letters then display 'Not a valid word' , award 0 points and end game.  
 If letters used match randomized letters, check if word exists in dictionary.

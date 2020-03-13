@@ -4,7 +4,11 @@ require 'tty-prompt'
 require 'tty-box'
 prompt=TTY::Prompt.new
 require 'colorize'
+<<<<<<< Updated upstream
 require_relative "./scrabblescore.rb" #someone else's scrabble score hash
+=======
+require_relative "./scrabblescore.rb"
+>>>>>>> Stashed changes
 
 
 play_game=true
@@ -40,11 +44,17 @@ while play_game==true
     return vowels + letters  
     end
 
+<<<<<<< Updated upstream
     #array
     randomletters=lettershuffle(numberofletters) 
     randomletterscheck=randomletters.to_s 
     #double check if when you make two arrays equal they link
     #so when you delete from one, it also deletes from the other
+=======
+    #assign randomletters using method
+    randomletters=lettershuffle(numberofletters)
+    randomletterscheck=randomletters.to_s
+>>>>>>> Stashed changes
 
     #collects userinput for word
     def wordcollect()
@@ -54,6 +64,7 @@ while play_game==true
     end
     
 
+<<<<<<< Updated upstream
     def wordcheck(userinput, randomletterscheck)
         for letter in userinput
             #if randomletters had the letter inside
@@ -62,6 +73,19 @@ while play_game==true
                 #only noticed this because sometimes words like goon wouldn't work    
                 randomletterscheck.delete_at(randomletterscheck.index(letter)) #at index of specified letter in
                  #the random letters array, delete it
+=======
+    def wordcheck(userinputcheck, randomletterscheck)
+        index=0
+        for letter in userinputcheck
+            #if randomletters had the letter inside
+            if randomletterscheck.include?(letter)
+               
+            randomletterscheck.delete_at(randomletterscheck.index(letter))
+            # p randomletterscheck
+            index+=1
+            
+            # p index
+>>>>>>> Stashed changes
             else
                 puts "\nNot a valid word!".colorize(:yellow)
             return false
@@ -71,12 +95,23 @@ while play_game==true
     end
 
     validword=false
+<<<<<<< Updated upstream
         while validword == false do
             puts " "
             print randomletters 
             userinput=wordcollect()
             validword=wordcheck(userinput, randomletterscheck)
         end
+=======
+    while validword == false do
+    puts " "
+    print randomletters
+     userinput=wordcollect()
+     userinputcheck = userinput
+     randomletterscheck=randomletters
+     validword=wordcheck(userinputcheck, randomletterscheck)
+    end
+>>>>>>> Stashed changes
 
     #results = check dictionary gem to see if word can be defined
     results = DictionaryLookup::Base.define(userinput)

@@ -47,7 +47,7 @@ while play_game==true
 
     #assign randomletters using method
     randomletters=lettershuffle(numberofletters)
-    
+    randomletterscheck=randomletters.to_s
 
     def wordcollect()
     puts "\nPlease enter the longest word you can think of,".colorize(:red) 
