@@ -45,8 +45,9 @@ if the word is less than 6 letters and if so will shuffle at least one vowel in,
 ## R7.User Interaction and Experience
 User will be prompted on-screen to enter how many letters they want to play with,
 if user tries to enter number outside of the range, display "value is out of expected range 2-20 letters" 
+Program then outputs random letters based on userinput.
 User will be prompted to enter a word using the randomized letters.
-If user's input doesn't exist in randomized letters then display 'Not a valid word' , award 0 points and end game.  
+If user's input doesn't exist in randomized letters then display 'Not a valid word',  
 If letters used match randomized letters, check if word exists in dictionary.
 Award and store points based on length.
 Then ask if user wants to play again, user selects 'y' to play again or 'n'
@@ -59,30 +60,6 @@ Vowel Adder
 
 ## R10. Help Documentation
 
-## R17. Manual Testing
-### Test 1.
-Feature being tested
-User should not be able to get points for using letters
-that are not output by the program
-
-Test Case Summary
-I'll use letters other than the ones output by program
-
-Test Data
-Program output
-User Input
-
-Expected Result
-User should not get points for using letters not output by program
-
-Actual Result
-User did not get points for using letters not output by program
-
-Status
-Passed
-
-Comment
-Works as expected
 
 
 
