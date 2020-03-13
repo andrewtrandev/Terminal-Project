@@ -1,4 +1,4 @@
-# Terminal Word Scramble
+# Terminal Scrabble
 
 # Software Development Plan
 
@@ -11,8 +11,7 @@ https://github.com/nitishparkar/dictionary-lookup-rb
 https://github.com/Demonstrandum/RubyFiglet
 
 ### Ruby files
-Scrabble Hash -
-https://exercism.io/tracks/ruby/exercises/scrabble-score/solutions/70afb9275c054c2dab17d7a21da7d408
+https://exercism.io/tracks/ruby/exercises/scrabble-score/solutions/70afb9275c054c2dab17d7a21da7d408 - Borrowed scrabble hash
 
 
 ## R4.Source Control Repository
@@ -22,7 +21,7 @@ https://github.com/andrewtrandev/terminalproject
 Program will entertain users by allowing them to play a simple word game in terminal. I'm developing this to test out some programming ideas and features, I also like word games and thought it would be an interesting idea to try.
 
 ## Target Audience
-The target audience is for bored people looking for brain stimulating entertainment and anyone interested in word games.
+The target audience is for bored people looking for brain stimulationg entertainment and anyone interested in word games.
 
 ## How to use
 The target audience will be prompted to enter how many letters they would like to play with.
@@ -56,12 +55,10 @@ Then ask if user wants to play again, user selects 'y' to play again or 'n'
 to end the game loop. If user decides to play again, score should carry over and continue to add whilst in the same instance of game loop.
 
 ## R8. Control Flow
-![Control Flow Diagram](./docs/FlowChart.png)
+![Control Flow Diagram](AndrewTran_T1A2\docs\ATranFlowChart.png)
 
 ## R9. Implementation Plan
-![Replay System](./docs/R9.ReplaySystem.PNG)
 
-![]
 
 ## R10. Help Documentation
 1. Install ruby on your windows subsystem

@@ -1,5 +1,3 @@
-
-
 require 'ruby_figlet'
 require 'dictionary_lookup'
 require 'tty-prompt'
@@ -7,8 +5,6 @@ require 'tty-box'
 prompt=TTY::Prompt.new
 require 'colorize'
 require_relative "./scrabblescore.rb"
-# [:black, :light_black, :red, :light_red, :green, :light_green, :yellow, :light_yellow, :blue, 
-#     :light_blue, :magenta, :light_magnenta, :cyan, :light_cyan, :white, :light_white, :default]
 
 play_game=true
 score=0
@@ -57,16 +53,14 @@ while play_game==true
     
 
     def wordcheck(userinput, randomletters)
-        index=0
+        
         for letter in userinput
             #if randomletters had the letter inside
             if randomletters.include?(letter)
                
             randomletters.delete_at(randomletters.index(letter))
             # p randomletterscheck
-            index+=1
-            
-            # p index
+           
             else
                 puts "\nNot a valid word!".colorize(:yellow)
                 return false
@@ -82,19 +76,13 @@ while play_game==true
     puts " "
     print randomletters
      userinput=wordcollect()
-     validword=wordcheck(userinput, randomletters)
+     validword=wordcheck(userinput, randomletterscheck)
     end
 
     #results = check dictionary gem to see if word can be defined
-    #feed user input in that checks with dictionary
-    #sanitize inputs for get rid of numbers and odd characters?
     results = DictionaryLookup::Base.define(userinput)
- 
-    # p userinput.split.pop == 's'
-    #word length = points length
-    #if empty array then no points
-    #if answer is not equal to empty array then award userinput.length as points
-    
+    #if results is empty array then no points
+   
     if results != [] && validword==true
         
         puts "\nCongratulations you win #{Scrabble.score(userinput)} points".colorize(:light_green)
