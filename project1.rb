@@ -53,7 +53,6 @@ while play_game==true
     
 
     def wordcheck(userinput, randomletterscheck)
-        
         for letter in userinput
             #if randomletters had the letter inside
             if randomletterscheck.include?(letter)
@@ -63,15 +62,12 @@ while play_game==true
             else
                 puts "\nNot a valid word!".colorize(:yellow)
             return false
-                
             end
-        
         end
         return true 
     end
 
     validword=false
-    
     while validword == false do
         puts " "
         print randomletters
